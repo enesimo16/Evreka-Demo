@@ -22,6 +22,11 @@ Evreka, e-ticaret şirketlerinin dağınık kanallarını tek bir omurgada topla
 - Etsy (El yapımı ve özel tasarım ürünler için global sipariş ve teslimat takibi)
 - B&Q ve Temu (Kanal bazlı listeleme ve sipariş besleme köprüleri)
 
+#### Sosyal Ticaret ve Mesajlaşma Kanalları
+- WhatsApp (WhatsApp Business API; doğrudan müşteri destek hattı, sipariş onay bildirimleri, kargo takip mesajları ve terk edilmiş sepet geri kazanımı)
+- Instagram (Instagram Shop ve Instagram Direct; gönderi ve Reels üzerinden ürün etiketleme, DM müşteri taleplerinin tek merkezden yönetimi ve sipariş kaydı)
+- Facebook (Meta Commerce Manager ve Facebook Marketplace; ürün katalog senkronizasyonu, pazar yeri satışları ve sosyal mağaza entegrasyonu)
+
 #### Kurumsal ERP ve Ticari Muhasebe Yazılımları
 - Base (BaseLinker): Çok kanallı e-ticaret yönetim motoru, sipariş aktarımı ve kargo etiketleme.
 - Sentos: Entegre stok, fatura ve pazar yeri köprüsü.
@@ -81,7 +86,7 @@ Evreka, e-ticaret şirketlerinin dağınık kanallarını tek bir omurgada topla
 - Borç ve Alacak Yaşlandırma: Tahsilat vadeleri ve tedarikçi ödeme planlarının 30-60-90 günlük periyotlarda izlenmesi.
 
 #### 5. E-Fatura ve Resmi Süreçler
-- Yasal Defter (Ledger): Kesilen ve gelen faturaların mali mevzuata uygun dökümü.
+- Fatura Defteri: Yasal defter standartlarında fatura listesi ve muhasebe dökümü.
 - E-Fatura ve E-Arşiv İşlemleri: Fatura taslağı oluşturma, Gelir İdaresi Başkanlığı onay akışı, iptal ve itiraz yönetimi.
 - Çoklu Tüzel Kişilik (Multi-Entity): Birden fazla şirket veya vergi kimlik numarası üzerinden farklı fatura serileriyle işlem yapabilme.
 - E-İrsaliye: Depodan çıkış anında taşıma irsaliyesinin düzenlenmesi ve kargo firmasıyla eşleştirilmesi.
@@ -103,7 +108,7 @@ Evreka, e-ticaret şirketlerinin dağınık kanallarını tek bir omurgada topla
 - Pazaryeri Mutabakatı: Pazaryerlerinin banka hesabına gönderdiği hakediş tutarları ile paneldeki sipariş kesintilerinin kuruşu kuruşuna karşılaştırılması.
 
 #### 8. Özel Çalışma Alanları (Workspaces & Hubs)
-- Omnichannel Inbox: WhatsApp, pazar yeri soruları ve canlı destek mesajlarının tek bir gelen kutusunda temsilcilere atanarak yönetilmesi.
+- Omnichannel Inbox: WhatsApp, Instagram DM, pazar yeri soruları ve canlı destek mesajlarının tek bir gelen kutusunda temsilcilere atanarak yönetilmesi.
 - AdsHub: Reklam platformlarının tek panelden bütçe kontrolü, kampanya açma/kapama ve harcama geri dönüş (ROAS) analitiği.
 - SellingView: Yapay zeka ve istatistiksel trend analizi ile gelecek 30-60-90 günün satış hacmi ve stok gereksinimi projeksiyonu.
 - Photo Studio: Ürün fotoğraflarının yapay zeka ile arka planının temizlenmesi, renk tonu eşitlenmesi ve pazar yeri çözünürlüklerine uyarlanması.

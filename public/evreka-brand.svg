@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 160" width="100%" height="160">
+  <defs>
+    <!-- Striking Monochromatic Chrome / Black / Silver / White Gradient -->
+    <linearGradient id="chromeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#09090b">
+        <animate attributeName="stop-color" values="#09090b;#71717a;#ffffff;#09090b" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="25%" stop-color="#52525b">
+        <animate attributeName="stop-color" values="#52525b;#ffffff;#09090b;#52525b" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#ffffff">
+        <animate attributeName="stop-color" values="#ffffff;#09090b;#71717a;#ffffff" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="75%" stop-color="#3f3f46">
+        <animate attributeName="stop-color" values="#3f3f46;#ffffff;#09090b;#3f3f46" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#09090b">
+        <animate attributeName="stop-color" values="#09090b;#71717a;#ffffff;#09090b" dur="4s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <!-- Accent Underline Gradient -->
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#18181b" />
+      <stop offset="50%" stop-color="#e4e4e7">
+        <animate attributeName="stop-color" values="#e4e4e7;#27272a;#ffffff;#e4e4e7" dur="3s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#18181b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="transparent" />
+
+  <!-- Bold Striking Monochromatic Typography -->
+  <text 
+    x="50%" 
+    y="85" 
+    text-anchor="middle" 
+    dominant-baseline="central"
+    fill="url(#chromeGrad)"
+    stroke="#27272a"
+    stroke-width="1.5"
+    paint-order="stroke fill"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+    font-size="98" 
+    font-weight="900" 
+    letter-spacing="18"
+  >
+    EVREKA
+  </text>
+
+  <!-- Accent Shimmer Bar -->
+  <rect 
+    y="138" 
+    height="4" 
+    rx="2" 
+    fill="url(#lineGrad)"
+  >
+    <animate attributeName="x" values="360;280;360" dur="4s" repeatCount="indefinite" />
+    <animate attributeName="width" values="180;340;180" dur="4s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite" />
+  </rect>
+</svg>

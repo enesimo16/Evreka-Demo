@@ -1,89 +1,119 @@
 <p align="center">
-  <img src="public/evreka-banner.svg" alt="EVREKA" width="680" />
+  <img src="public/evreka-banner.svg" alt="EVREKA" width="700" />
 </p>
 
-<h1 align="center">EVREKA</h1>
-
-Bu depo, Evreka platformunun arka uç bağımlılığı bulunmayan, tamamen kurgusal simülasyon verileriyle çalışan bağımsız demo sürümüdür. Sistem mimarisi ve kullanıcı arayüzü kabiliyetleri canlı ortam davranışını birebir yansıtacak şekilde istemci katmanında izole olarak modellenmiştir.
+Bu depo, Evreka E-Ticaret ve Operasyon Yönetim Platformu'nun arka uç bağımsız çalışan, izole simülasyon ve etkileşimli demo sürümüdür. Sistem üzerindeki tüm veri akışları, analitik hesaplamalar, sipariş döngüleri ve modül etkileşimleri istemci tarafında gerçekçi modellerle simüle edilmiştir.
 
 ---
 
-### Sistem Kapsamı ve Modül Mimarisi
+### Entegrasyon Ekosistemi
 
-#### 1. Sipariş Operasyonları
-- Sipariş Yönetimi: Çok kanallı sipariş akışı, satır bazlı işlem statüleri ve kargo takip süreçleri.
-- Müşteri İletişimi: Sipariş ilişkili müşteri e-posta kayıtları ve bildirim geçmişi.
-- İade ve Değişim: İade talep kabulü, ürün kabul kontrolleri ve operasyonel iade kararları.
-- Hızlı Sipariş Girişi: Harici veya fiziksel kanallar için panel içi manuel sipariş kaydı.
+Evreka, e-ticaret şirketlerinin dağınık kanallarını tek bir omurgada toplamak üzere geliştirilmiş geniş bir bağlantı kataloğuna sahiptir.
 
-#### 2. Ürün ve Envanter Yönetimi
-- Ürün Kataloğu: Merkezi SKU yönetimi, varyant yapıları, görsel ve teknik nitelik eşlemeleri.
-- Kategori ve Eşleştirme Motoru: Çok platformlu kategori ağacı, otomatik kural tanımları ve uyuşmazlık denetimi.
-- Depo ve Kolileme: Koli matrisleri, hacimsel hesaplamalar ve paketleme optimizasyonu.
-- Araç ve Model Uyumluluğu: Model yılı, kasa ve motor tiplerine dayalı parça uyumluluk doğrulaması.
-- Lojistik Haritası: Bölgesel sevkiyat yoğunluğu, kargo rotalama ve dağıtım coğrafyası.
-- Canlı Stok Takibi: Çok depolu gerçek zamanlı bakiye, rezerve adetler ve kritik stok alarmları.
-- Ürün Açığı Analitiği: Satış kanallarındaki eksik listelemelerin ve portföy açıklarının tespiti.
+#### Global ve Yerel Pazaryeri Entegrasyonları
+- Amazon (Kuzey Amerika, Avrupa, Birleşik Krallık, Türkiye pazar yerleri; SP-API sipariş, stok ve finans mutabakatı)
+- eBay (Çoklu mağaza listeleme, sipariş yönetimi, uluslararası kargo ve vergi takibi)
+- Shopify (Özel e-ticaret siteleri, webhook tabanlı canlı sipariş ve sepet eşitlemesi)
+- Trendyol (Pazaryeri siparişleri, onay akışları, fatura yükleme ve komisyon kesinti takibi)
+- Hepsiburada (Merchant API entegrasyonu, kargo barkod üretimi ve hakediş mutabakatı)
+- N11 (Sipariş karşılama, iptal/iade süreçleri ve katalog senkronizasyonu)
+- Pazarama (Yurt içi pazar yeri sipariş ve stok operasyonları)
+- Çiçeksepeti (Sipariş kabulü, statü güncellemeleri ve ürün eşleme)
+- Etsy (El yapımı ve özel tasarım ürünler için global sipariş ve teslimat takibi)
+- B&Q ve Temu (Kanal bazlı listeleme ve sipariş besleme köprüleri)
+
+#### Kurumsal ERP ve Ticari Muhasebe Yazılımları
+- Base (BaseLinker): Çok kanallı e-ticaret yönetim motoru, sipariş aktarımı ve kargo etiketleme.
+- Sentos: Entegre stok, fatura ve pazar yeri köprüsü.
+- Logo Yazılım (Logo Go3, Logo Tiger): Kurumsal muhasebe fişleri, stok kartları ve cari hesap entegrasyonu.
+- Mikro Yazılım (Mikro v16, Jump, Fly): Çift yönlü stok ve e-fatura senkronizasyonu.
+- Netsis: Üretim, depo ve genel muhasebe veri köprüleri.
+- Nebim (Nebim V3): Perakende ve çoklu mağaza stok-satış optimizasyonu.
+- Paraşüt ve BizimHesap: KOBİ segmenti bulut ön muhasebe ve e-fatura entegrasyonları.
+- Akınsoft (Wolvox): Masaüstü ve SQL tabanlı ERP veri aktarımı.
+- Odoo, SAP, Microsoft Dynamics 365, Oracle NetSuite: Global kurumsal kaynak planlama altyapılarına yönelik veri akışları.
+- Dia Yazılım, ETA, Luca, Uyumsoft, Xero: Defter kayıtları, beyanname hazırlığı ve mali mutabakat köprüleri.
+
+#### Taşıyıcı ve Kargo Lojistiği Entegrasyonları
+- Yurt İçi Taşıyıcılar: Yurtiçi Kargo, Aras Kargo, MNG Kargo, PTT Kargo, Sürat Kargo, HepsiJet, Trendyol Express (TEX), Kolay Gelsin.
+- Uluslararası Taşıyıcılar: DHL Express, FedEx, UPS, DX Delivery, Royal Mail.
+- Otomatik kargo barkodu basımı, desi ve mesafe bazlı taşıma maliyeti hesaplama ve canlı kargo takip statüsü sorgulama.
+
+#### Reklam ve İletişim Kanalları
+- Pazarlama Ağları: Google Ads, Meta Ads (Facebook ve Instagram), TikTok Ads reklam harcaması ve ROAS ölçümü.
+- Kurumsal İletişim: Slack bildirim kanalları ve operasyonel Trello pano bağlantıları.
+
+---
+
+### Detaylı Modül Mimarisi
+
+#### 1. Sipariş Yönetimi ve Operasyon
+- Çok Kanallı Sipariş Masası: Tüm pazaryerlerinden gelen siparişlerin tek ekranda konsolide edilmesi; filtreleme, etiketleme ve toplu işleme imkanı.
+- Satır Bazlı Operasyon Statüleri: Sipariş içindeki her bir ürünün ayrı ayrı hazırlanma, paketlenme, faturalanma ve sevk statüsünün yönetimi.
+- Müşteri E-Posta Takibi: Pazaryerleri üzerinden iletilen anonim veya açık müşteri e-posta yazışmalarının siparişle eşleştirilmesi.
+- İade ve İnceleme Süreci: Müşteri iadelerinin depo kabulü, hasar/eksik tespiti, ürünün tekrar stoka alınması veya hurdaya ayrılması kararları.
+- Manuel ve B2B Sipariş Girişi: Pazar yeri harici doğrudan kurumsal veya toptan satışlar için hızlı sipariş oluşturma paneli.
+
+#### 2. Ürün, Katalog ve Envanter
+- Çok Kanallı Ürün Kataloğu: Ana stok kartı (Master SKU), barkod, marka ve varyant (renk, beden, hacim) hiyerarşisi.
+- Dinamik Kategori ve Nitelik Eşleme: Her pazaryerinin farklı kategori şemalarına kurallar tanımlayarak tek tıkla toplu eşleme yapabilme; nitelik uyumsuzluklarını otomatik denetleme.
+- Depo ve Koli Matrisi (Boxes): Ürünlerin koli içi adetleri, brüt ağırlık ve hacimsel (desi) ölçülerinin sevkiyat öncesi hesaplanması.
+- Araç ve Model Uyumluluk Motoru (Fitment): Otomotiv ve aksesuar odaklı marka, model, kasa kodu ve üretim yılı bazında parça uyumluluk doğrulaması.
+- Lojistik Haritası: Türkiye ve Birleşik Krallık bölgelerinde sipariş dağılımını gösteren coğrafi harita analizleri.
+- Canlı Stok ve Güvenlik Seviyesi: Çok depolu sistemde emniyet stoku, temin süresi ve sipariş eşiği hesaplamaları.
+- Ürün Açığı (Gap) Analizi: Bir platformda satılan fakat diğer pazaryerlerinde henüz listelenmemiş karlı ürünlerin belirlenmesi.
 
 #### 3. Analitik ve Karar Destek
-- Ürün Performans Analizi: Hız, devir hızı, satış trendleri ve kanal bazlı performans metrikleri.
-- Anomali Tespiti: Ani sipariş düşüşleri, anormal iade oranları ve stok sapma bildirimleri.
-- Fiyat ve Stok Tutarlılık Denetimi: Pazaryerleri ile merkez envanter arasındaki uyumsuzlukların tespiti.
-- Kohort Analizi: Müşteri edinme dönemlerine göre tekrar satın alma ve yaşam boyu değer davranışları.
-- Kanibalizasyon Analizi: Benzer veya muadil ürünlerin birbirinin satışını baskılama oranları.
-- Zarar Eden Ürün Tespiti: Negatif marjla çalışan liste fiyatlarının anlık tespiti.
-- Rakip Fiyat Karşılaştırması: Hedef ürün gruplarında piyasa fiyatları ve rekabet endeksi.
+- Ürün Satış ve Marj Analitiği: Hangi ürünün ne kadar ciro, brüt kâr ve net marj ürettiğinin zamansal karşılaştırması.
+- Anomali ve Kaçak Tespiti: Beklenmeyen satış düşüşleri, aşırı kargo faturası kesintileri veya negatif kârlı siparişlerin anlık uyarısı.
+- Fiyat ve Stok Tutarlılık Denetimi: Pazaryerindeki satış fiyatı ile merkez liste fiyatı arasındaki kur veya giriş hatalarını yakalayan güvenlik motoru.
+- Müşteri Kohort Analizi: Müşterilerin ilk satın alma dönemlerine göre tekrar sipariş verme sıklığı ve yaşam boyu değeri (LTV).
+- Kanibalizasyon Raporu: Yeni açılan ürün listelemelerinin firmanın kendi eski ürünlerinin satışını kesip kesmediğini ölçen analiz.
+- Zarar Eden Ürün Tespiti: Komisyon, kargo, reklam ve ürün maliyeti toplamı satış fiyatını aşan zarardaki kalemlerin listelenmesi.
+- Rakip Fiyat Karşılaştırması: Rakiplerin pazar fiyatlarının izlenmesi, rekabetçi fiyatlandırma aralıklarının saptanması.
 
-#### 4. Finans ve Kârlılık
-- P&L Analitiği: Sipariş bazlı brüt ciro, pazaryeri komisyonları, kargo maliyeti, reklam payı ve net kâr hesabı.
-- Dinamik Gider Yönetimi: Sabit ve değişken genel gider kalemlerinin operasyonlara yansıtılması.
-- Ürün Maliyet Kartları: Alış maliyeti, gümrük, ambalaj ve ek yüklerin dinamik maliyet tablosu.
-- Kargo ve Taşıma Tarifeleri: Desi ve bölge bazlı kargo anlaşma matrisleri.
-- Platform Kesinti Parametreleri: Kanal ve kategori bazlı komisyon ve hizmet bedeli tanımları.
-- Yaşlandırma Raporları: Vadesi geçmiş veya yaklaşan nakit akışlarının zaman dilimi analizi.
+#### 4. Kârlılık ve Finans (P&L)
+- Sipariş Bazında Net Kâr (P&L): Her sipariş satırı için brüt tutardan KDV, pazar yeri komisyonu, kargo bedeli, ambalaj payı ve ürün maliyeti düşülerek net kârın hesaplanması.
+- Sabit ve Değişken Gider Yönetimi: Personel, depo kirası, yazılım ve ofis masraflarının sipariş maliyetlerine paylaştırılması.
+- Ürün Maliyet Kartları (Costing): Dövizli hammadde maliyeti, gümrük vergisi, navlun ve işçilik girdilerinin dinamik maliyet tablosu.
+- Kargo ve Taşıma Tarifeleri: Anlaşmalı kargo firmalarının desi ve mesafe bazlı güncel fiyat tabloları.
+- Platform Kesinti Parametreleri: Satış kanalına göre değişen stopaj, işlem ücreti ve ceza komisyonlarının parametrik yönetimi.
+- Borç ve Alacak Yaşlandırma: Tahsilat vadeleri ve tedarikçi ödeme planlarının 30-60-90 günlük periyotlarda izlenmesi.
 
 #### 5. E-Fatura ve Resmi Süreçler
-- Fatura Defteri: Yasal defter standartlarında fatura listesi ve muhasebe dökümü.
-- E-Fatura ve E-Arşiv: Fatura oluşturma, iptal, itiraz ve onay süreçleri.
-- Çoklu Tüzel Kişilik: Birden fazla şirket ve fatura kesici tüzel unvan yönetimi.
-- E-İrsaliye: Mal sevkiyatı öncesi resmi irsaliye düzenleme ve eşleme.
-- Seri ve Numara Yönetimi: Yasal fatura seri kodları ve sayaç yapılandırması.
-- Ticari Yanıt Yönetimi: Gelen ticari faturalara sistem üzerinden kabul veya ret yanıtı iletimi.
-- Alış Faturası Eşleştirme: Satın alma ve irsaliyeler ile gelen e-faturaların otomatik mutabakatı.
-- Zarf ve UBL Yönetimi: Gelir İdaresi standartlarında UBL XML paketleme ve durum sorgulama.
+- Yasal Defter (Ledger): Kesilen ve gelen faturaların mali mevzuata uygun dökümü.
+- E-Fatura ve E-Arşiv İşlemleri: Fatura taslağı oluşturma, Gelir İdaresi Başkanlığı onay akışı, iptal ve itiraz yönetimi.
+- Çoklu Tüzel Kişilik (Multi-Entity): Birden fazla şirket veya vergi kimlik numarası üzerinden farklı fatura serileriyle işlem yapabilme.
+- E-İrsaliye: Depodan çıkış anında taşıma irsaliyesinin düzenlenmesi ve kargo firmasıyla eşleştirilmesi.
+- Ticari Yanıt Yönetimi: Gelen ticari e-faturalara yasal 8 günlük süre içinde sistem üzerinden kabul veya ret yanıtı verilmesi.
+- Alış Faturası Eşleştirme: Tedarikçilerden gelen e-faturaların satın alma irsaliyeleri ve siparişleriyle otomatik örtüştürülmesi.
+- UBL ve Zarf İletişimi: GİB entegratörleri üzerinden giden ve gelen UBL formatındaki XML zarf takibi.
 
-#### 6. Satın Alma ve Üretim
-- Satın Alma Siparişleri: Tedarikçi sipariş talepleri, onay hiyerarşisi ve mal kabul kontrolü.
-- Tedarikçi Yönetimi: Tedarikçi iletişim kartları, vade koşulları ve performans karnesi.
-- Hammadde ve Yarı Mamul: Üretim girdilerinin stok, parti ve kalite takibi.
-- Ürün Reçeteleri: Mamul ve yarı mamul montaj ağaçları ve fire hesaplamaları.
+#### 6. Satın Alma ve Üretim (BOM)
+- Satın Alma Emirleri: Stok kritik seviyeye düştüğünde otomatik veya manuel satın alma emri oluşturma, onay ve teslimat takibi.
+- Tedarikçi Kartları: Tedarikçi iletişim bilgileri, banka hesapları, iskonto oranları ve teslimat güvenilirlik puanı.
+- Hammadde ve Reçete (BOM): Nihai ürünün imalatında kullanılan parça, ambalaj ve hammaddelerin reçete ağacı ve fire katsayıları.
 
-#### 7. Ön ve Genel Muhasebe
-- Cari Hesap Yönetimi: Müşteri borç-alacak bakiyeleri, ekstre üretimi ve mutabakat.
-- Hazine ve Kasa Yönetimi: Banka hesapları, çek-senet portföyü ve nakit giriş-çıkışları.
-- Tahsilat ve Ödeme Planlaması: Vade takvimine göre nakit akış projeksiyonu.
-- Tek Düzen Hesap Planı: Ana hesap, grup ve muavin hesap hiyerarşisi.
-- Yevmiye ve Mizan: Çift taraflı kayıt esasına göre yevmiye fişleri ve periyodik mizan tablosu.
-- KDV Özeti ve E-Defter: Yasal beyan hazırlığı, berat dosyaları ve aylık kapanış kayıtları.
-- Pazaryeri Mutabakatı: Pazaryeri hakediş raporları ile merkez siparişlerinin otomatik karşılaştırılması.
+#### 7. Muhasebe Altyapısı
+- Müşteri ve Tedarikçi Carileri: Cari hesap bakiyeleri, hesap ekstreleri, mutabakat mektupları ve borç limitleri.
+- Kasa ve Hazine Yönetimi: Şirket banka hesapları, kredi kartı slipleri, çek/senet portföyü ve anlık nakit durumu.
+- Tek Düzen Hesap Planı: 100-780 arası hesap kodlarının hiyerarşik yönetimi ve fiş bağlantıları.
+- Yevmiye ve Mizan: Borç-alacak eşitliğini sağlayan yevmiye fişleri ve dönemsel genel mizan dökümü.
+- KDV Özeti ve E-Defter: 1 no'lu KDV beyannamesi kontrol raporları, yevmiye ve kebir berat dosyalarının hazırlanması.
+- Pazaryeri Mutabakatı: Pazaryerlerinin banka hesabına gönderdiği hakediş tutarları ile paneldeki sipariş kesintilerinin kuruşu kuruşuna karşılaştırılması.
 
-#### 8. Özel Raporlama ve Gösterge Panelleri
-- Dinamik Excel Rapor Motoru: Alan, filtre ve gruplama seçimine dayalı özelleştirilebilir veri dışa aktarımı.
-- KPI ve Widget Tasarımcısı: Kullanıcı ihtiyaçlarına göre yapılandırılabilen gösterge blokları.
+#### 8. Özel Çalışma Alanları (Workspaces & Hubs)
+- Omnichannel Inbox: WhatsApp, pazar yeri soruları ve canlı destek mesajlarının tek bir gelen kutusunda temsilcilere atanarak yönetilmesi.
+- AdsHub: Reklam platformlarının tek panelden bütçe kontrolü, kampanya açma/kapama ve harcama geri dönüş (ROAS) analitiği.
+- SellingView: Yapay zeka ve istatistiksel trend analizi ile gelecek 30-60-90 günün satış hacmi ve stok gereksinimi projeksiyonu.
+- Photo Studio: Ürün fotoğraflarının yapay zeka ile arka planının temizlenmesi, renk tonu eşitlenmesi ve pazar yeri çözünürlüklerine uyarlanması.
+- PartnerHub (B2B): Yetkili bayilerin özel iskonto oranlarıyla sipariş girebildiği, limitlerini ve cari ekstrelerini görebildiği B2B portali.
+- OEM Matcher: Orijinal ekipman üretici kodlarının (OEM) alternatif ve muadil referanslarla eşleştirilmesi.
+- WMS (Depo Yönetim Sistemi): Depo içi koridor, raf ve göz bazında adresleme, el terminali ile toplama ve barkodlu mal kabul.
 
-#### 9. Entegre Çalışma Alanları
-- Çok Kanallı İletişim Merkezi: Tüm pazaryeri ve web sitesi müşteri mesajlarının tek gelen kutusunda yönetimi.
-- Reklam Performans Merkezi: Google, Meta ve pazaryeri reklam harcamaları, ROAS ve bütçe optimizasyonu.
-- Satış ve Talep Tahminleme: Geçmiş trendler ve mevsimsellik verisiyle tedarik tahminleme.
-- Ürün Görsel Stüdyosu: Katalog görsellerinin standartlaştırılması, arka plan ayrıştırma ve boyut optimizasyonu.
-- B2B İş Ortaklığı Portalı: Bayi siparişleri, özel fiyat listeleri ve cari risk sınırları.
-- Parça Kod Eşleştirme Motoru: OEM, OES ve üretici referans kodlarının çapraz eşlenmesi.
-- Depo Yönetim Sistemi: Barkod ve QR kod destekli raf adresleme, toplama rotalama ve sayım.
-- Kanal Entegrasyonları: Amazon, eBay, Shopify, Trendyol, Hepsiburada, Base ve Sentos veri köprüleri.
-
-#### 10. Güvenlik ve Sistem Yönetimi
-- Rol ve İzin Matrisi: Granüler sayfa, modül ve işlem bazlı yetkilendirme altyapısı.
-- İş Akışı ve Otomasyon: Koşullu tetikleyiciler, webhook bildirimleri ve zamanlanmış görevler.
-- İki Faktörlü Doğrulama: Güvenli oturum açma ve kimlik doğrulama katmanı.
-- Şifre ve Entegrasyon Kasası: API anahtarları ve gizli anahtarlar için şifreli saklama alanı.
-- Dinamik QR Kod Servisi: Ürün ve depo lokasyonları için anlık QR kod üretimi.
+#### 9. Güvenlik, Otomasyon ve Sistem
+- Rol ve İzin Matrisi: Kullanıcı bazlı değil rol bazlı yetkilendirme; hangi kullanıcının hangi menüyü görebileceği veya işlem yapabileceğinin yönetimi.
+- Otomasyon Motoru: Koşullu tetikleyiciler (örneğin sipariş tutarı belirli bir değeri aştığında bildirim gönderme veya kargo firmasını otomatik seçme).
+- İki Aşamalı Güvenlik (2FA): Zaman tabanlı tek kullanımlık parola (TOTP) ve yedek kurtarma kodları ile hesap koruması.
+- Şifre ve Kimlik Kasası: Pazaryeri API gizli anahtarlarının ve entegrasyon kimlik bilgilerinin güvenli saklanması.
+- QR Kod Yönetimi: Ürün ambalajları, koli etiketleri ve depo lokasyonları için anlık dinamik QR kod basımı.

@@ -68,18 +68,10 @@ export function DemoLoginScreen({ submitting, onStart }: DemoLoginScreenProps) {
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-medium text-zinc-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-medium text-zinc-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400">
               <span className="h-1.5 w-1.5 rounded-full bg-zinc-900 dark:bg-white animate-pulse" />
               Demo Sürümü
             </span>
-            <button
-              type="button"
-              disabled={submitting}
-              onClick={onStart}
-              className="rounded-lg bg-black px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200 disabled:opacity-60"
-            >
-              {submitting ? 'Açılıyor…' : 'Panele Gir'}
-            </button>
           </div>
         </div>
       </header>
@@ -211,7 +203,7 @@ export function DemoLoginScreen({ submitting, onStart }: DemoLoginScreenProps) {
 
       {/* Simple Monochrome Footer */}
       <footer className="w-full border-t border-zinc-200/60 bg-white/50 px-6 py-4 text-center text-xs text-zinc-500 dark:border-zinc-800/60 dark:bg-transparent dark:text-zinc-500">
-        &copy; {new Date().getFullYear()} Evreka ERP. Tüm hakları saklıdır.
+        &copy; {new Date().getFullYear()} Evreka ERP &bull; Yel LLC. Tüm hakları saklıdır.
       </footer>
 
     </main>

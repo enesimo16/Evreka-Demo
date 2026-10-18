@@ -122,3 +122,7 @@ Evreka, e-ticaret şirketlerinin dağınık kanallarını tek bir omurgada topla
 - İki Aşamalı Güvenlik (2FA): Zaman tabanlı tek kullanımlık parola (TOTP) ve yedek kurtarma kodları ile hesap koruması.
 - Şifre ve Kimlik Kasası: Pazaryeri API gizli anahtarlarının ve entegrasyon kimlik bilgilerinin güvenli saklanması.
 - QR Kod Yönetimi: Ürün ambalajları, koli etiketleri ve depo lokasyonları için anlık dinamik QR kod basımı.
+
+---
+
+&copy; 2026 Evreka ERP &bull; Yel LLC. Tüm hakları saklıdır.

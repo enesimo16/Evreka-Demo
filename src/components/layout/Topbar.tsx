@@ -812,28 +812,6 @@ export function Topbar({
           <Download size={13} />
         </button>
 
-        {/* Tanıtım / Home Ekranına Dön */}
-        <button
-          onClick={() => {
-            logout();
-            router.push('/login');
-          }}
-          style={{
-            display: 'flex', alignItems: 'center', gap: 6,
-            height: 30, padding: '0 10px',
-            background: 'var(--card)', border: '1px solid var(--border-soft)',
-            borderRadius: '6px', cursor: 'pointer', color: 'var(--fg)',
-            fontSize: text.xs, fontWeight: 600,
-            transition: 'all 0.12s',
-          }}
-          onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--card-hover)'; }}
-          onMouseLeave={(e) => { e.currentTarget.style.background = 'var(--card)'; }}
-          title="Tanıtım Ekranına Dön"
-        >
-          <Home size={13} style={{ color: 'var(--fg-muted)' }} />
-          <span className="hidden md:inline">Tanıtım Ekranı</span>
-        </button>
-
         {/* Theme Toggle */}
         <button
           onClick={() => setTheme(isDark ? 'light' : 'dark')}

@@ -1,8 +1,8 @@
 {
   "id": "/dashboard",
-  "name": "ERP",
-  "short_name": "StoreB",
-  "description": "ERP — sipariş, stok, finans ve lojistik paneli",
+  "name": "Evreka! Dashboard",
+  "short_name": "Evreka!",
+  "description": "Evreka! — E-Ticaret, sipariş, stok, finans ve lojistik yönetim paneli",
   "lang": "tr",
   "dir": "ltr",
   "start_url": "/dashboard",

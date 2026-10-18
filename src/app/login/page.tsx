@@ -343,18 +343,13 @@ export default function LoginPage() {
       </div>
 
       {/* Brand Bar */}
-      <div className="brand-bar">
-        <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <Image className="brand-logo-img" src="/storea-siyah-logo.png" alt="StoreA" width={140} height={28} style={{ maxHeight: '28px', maxWidth: '100%', objectFit: 'contain' }} />
-        </div>
-        <div className="brand-divider" style={{ width: '1px', height: '20px' }} />
-        <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <Image className="brand-logo-img" src="/storeb-siyah-logo.png" alt="StoreB" width={140} height={26} style={{ maxHeight: '26px', maxWidth: '100%', objectFit: 'contain' }} />
-        </div>
-        <div className="brand-divider" style={{ width: '1px', height: '20px' }} />
-        <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <Image className="brand-logo-img" src="/storec-siyah-text-logo.png" alt="StoreC" width={140} height={16} style={{ maxHeight: '16px', maxWidth: '100%', objectFit: 'contain' }} />
-        </div>
+      <div className="brand-bar" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12 }}>
+        <span className="flex h-6 w-6 items-center justify-center rounded bg-gradient-to-tr from-indigo-600 to-violet-500 text-[10px] font-black text-white">
+          E!
+        </span>
+        <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.05em', color: 'var(--fg)' }}>
+          EVREKA! DASHBOARD
+        </span>
       </div>
 
       <style>{`

@@ -267,20 +267,18 @@ export function Sidebar({ mobile = false, onClose }: { mobile?: boolean; onClose
             href="/dashboard"
             onClick={() => selectAllStores()}
             style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
-            title="storeb."
+            title="Evreka! Dashboard"
           >
-            {IS_DEMO ? (
-              <span className="whitespace-nowrap text-base font-extrabold tracking-[0.15em] text-[var(--fg)]">{sidebarOpen ? 'ERP - DEMO' : 'ERP'}</span>
-            ) : (
-              <Image
-                src="/storeb-siyah-logo.png"
-                alt="StoreB"
-                width={sidebarOpen ? 128 : 30}
-                height={26}
-                style={{ width: sidebarOpen ? 128 : 30, height: 'auto', maxHeight: 26, objectFit: 'contain' }}
-                priority
-              />
-            )}
+            <div className="flex items-center gap-2.5">
+              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-tr from-indigo-600 to-violet-500 text-xs font-black text-white shadow-sm">
+                E!
+              </span>
+              {sidebarOpen && (
+                <span className="whitespace-nowrap text-base font-black tracking-tight text-[var(--fg)]">
+                  EVREKA<span className="text-indigo-600 font-extrabold">!</span>
+                </span>
+              )}
+            </div>
           </Link>
           {mobile && (
             <button

@@ -10,19 +10,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'ERP',
-  description: 'ERP Dashboard',
+  title: 'Evreka! Dashboard',
+  description: 'Evreka! — E-Ticaret & Operasyon Yönetim Paneli',
   manifest: '/manifest.json',
-  // Sekme faviconu → kullanıcının koyduğu StoreB emblemi (public/favicon.png, 96x96).
-  // app/favicon.ico konvansiyonu kaldırıldığından metadata.icons deterministik olarak bunu kullanır.
-  // apple-touch-icon AYRI: iOS'ta ana ekrana eklenen ikon odur ve 180x180 olmak
-  // ZORUNDA (96'lık favicon orada bulanık çıkar), o yüzden üretilmiş sete bakar.
   icons: {
     icon: '/favicon.png',
     shortcut: '/favicon.png',
     apple: '/icons/apple-touch-icon.png',
   },
-  appleWebApp: { capable: true, statusBarStyle: 'black-translucent', title: 'StoreB' },
+  appleWebApp: { capable: true, statusBarStyle: 'black-translucent', title: 'Evreka!' },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

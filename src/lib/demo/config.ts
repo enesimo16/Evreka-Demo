@@ -7,9 +7,9 @@ export const DEMO_BLOCKED_MESSAGE = 'Demo hesabı: bu işlem devre dışı.';
 
 export const DEMO_USER = {
   id: 1,
-  email: 'demo@demo.com',
-  firstName: 'Demo',
-  lastName: 'Hesabı',
+  email: 'admin@evreka.io',
+  firstName: 'Evreka',
+  lastName: 'Admin',
   roles: ['Admin'],
   profilePhotoUrl: null,
   slackMemberId: null,

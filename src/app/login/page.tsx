@@ -343,12 +343,12 @@ export default function LoginPage() {
       </div>
 
       {/* Brand Bar */}
-      <div className="brand-bar" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12 }}>
-        <span className="flex h-6 w-6 items-center justify-center rounded bg-gradient-to-tr from-indigo-600 to-violet-500 text-[10px] font-black text-white">
-          E!
+      <div className="brand-bar" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10 }}>
+        <span className="flex h-6 w-6 items-center justify-center rounded bg-black text-[10px] font-black text-white dark:bg-white dark:text-black">
+          E
         </span>
-        <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.05em', color: 'var(--fg)' }}>
-          EVREKA! DASHBOARD
+        <span style={{ fontSize: 13, fontWeight: 800, letterSpacing: '0.05em', color: 'var(--fg)' }}>
+          EVREKA ERP
         </span>
       </div>
 

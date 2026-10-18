@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import { useQuery } from '@tanstack/react-query';
-import { Sun, Moon, Globe, LogOut, ChevronDown, Bell, Download, Grid3x3, Lock, UserCog, Hash, PanelLeft, HelpCircle, MessagesSquare, Mail, Search } from 'lucide-react';
+import { Sun, Moon, Globe, LogOut, ChevronDown, Bell, Download, Grid3x3, Lock, UserCog, Hash, PanelLeft, HelpCircle, MessagesSquare, Mail, Search, Home } from 'lucide-react';
 import { usePwaInstall } from '../../hooks/usePwaInstall';
 import { useLayoutStore } from '../../stores/layout';
 
@@ -810,6 +810,28 @@ export function Topbar({
           title="Uygulamayı İndir (PWA)"
         >
           <Download size={13} />
+        </button>
+
+        {/* Tanıtım / Home Ekranına Dön */}
+        <button
+          onClick={() => {
+            logout();
+            router.push('/login');
+          }}
+          style={{
+            display: 'flex', alignItems: 'center', gap: 6,
+            height: 30, padding: '0 10px',
+            background: 'var(--card)', border: '1px solid var(--border-soft)',
+            borderRadius: '6px', cursor: 'pointer', color: 'var(--fg)',
+            fontSize: text.xs, fontWeight: 600,
+            transition: 'all 0.12s',
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--card-hover)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = 'var(--card)'; }}
+          title="Tanıtım Ekranına Dön"
+        >
+          <Home size={13} style={{ color: 'var(--fg-muted)' }} />
+          <span className="hidden md:inline">Tanıtım Ekranı</span>
         </button>
 
         {/* Theme Toggle */}

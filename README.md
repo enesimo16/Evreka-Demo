@@ -2,7 +2,7 @@
   <img src="public/evreka-brand.svg" alt="EVREKA" width="700" />
 </p>
 
-Bu depo, Evreka E-Ticaret ve Operasyon Yönetim Platformu'nun arka uç bağımsız çalışan, izole simülasyon ve etkileşimli demo sürümüdür. Sistem üzerindeki tüm veri akışları, analitik hesaplamalar, sipariş döngüleri ve modül etkileşimleri istemci tarafında gerçekçi modellerle simüle edilmiştir.
+Bu depo, Evreka ERP E-Ticaret ve Operasyon Yönetim Platformu'nun arka uç bağımsız çalışan, izole simülasyon ve etkileşimli demo sürümüdür. Sistem üzerindeki tüm veri akışları, analitik hesaplamalar, sipariş döngüleri ve modül etkileşimleri istemci tarafında gerçekçi modellerle simüle edilmiştir.
 
 ---
 

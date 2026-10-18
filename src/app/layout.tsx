@@ -10,15 +10,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Evreka! Dashboard',
-  description: 'Evreka! — E-Ticaret & Operasyon Yönetim Paneli',
+  title: 'Evreka ERP',
+  description: 'Evreka ERP — E-Ticaret & Operasyon Yönetim Sistemi',
   manifest: '/manifest.json',
   icons: {
     icon: '/favicon.png',
     shortcut: '/favicon.png',
     apple: '/icons/apple-touch-icon.png',
   },
-  appleWebApp: { capable: true, statusBarStyle: 'black-translucent', title: 'Evreka!' },
+  appleWebApp: { capable: true, statusBarStyle: 'black-translucent', title: 'Evreka ERP' },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

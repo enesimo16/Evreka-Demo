@@ -3,13 +3,14 @@
 import Link from 'next/link';
 import { IS_DEMO } from '../../lib/demo/config';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState, useMemo } from 'react';
 import dynamic from 'next/dynamic';
+import { useAuthStore } from '../../stores/auth';
 // Menü ikonları artık nav-groups.ts'ten geliyor (tek kaynak) — burada yalnızca sol panelin
 // KENDİ kabuğuna ait ikonlar kalır: aç/kapa okları, kilit, kullanıcı, ERP/pazaryeri bölümleri.
 import {
-  ChevronDown, Lock, UserCircle2, Plus, Store, X,
+  ChevronDown, Lock, UserCircle2, Plus, Store, X, Home,
 } from 'lucide-react';
 import { useLayoutStore } from '../../stores/layout';
 import { useI18n } from '../../lib/i18n';
@@ -70,6 +71,8 @@ function isSubActive(subHref: string, allChildren: SubItem[] | undefined, pathna
 
 export function Sidebar({ mobile = false, onClose }: { mobile?: boolean; onClose?: () => void }) {
   const pathname = usePathname();
+  const router = useRouter();
+  const logout = useAuthStore((s) => s.logout);
   const { sidebarOpen: desktopSidebarOpen, setSidebarOpen } = useLayoutStore();
   const sidebarOpen = mobile || desktopSidebarOpen;
   const { t, lang } = useI18n();
@@ -267,16 +270,21 @@ export function Sidebar({ mobile = false, onClose }: { mobile?: boolean; onClose
             href="/dashboard"
             onClick={() => selectAllStores()}
             style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
-            title="Evreka! Dashboard"
+            title="Evreka ERP"
           >
             <div className="flex items-center gap-2.5">
-              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-tr from-indigo-600 to-violet-500 text-xs font-black text-white shadow-sm">
-                E!
+              <span className="flex h-7 w-7 items-center justify-center rounded-md bg-black text-white dark:bg-white dark:text-black text-xs font-black tracking-wider shadow-sm">
+                E
               </span>
               {sidebarOpen && (
-                <span className="whitespace-nowrap text-base font-black tracking-tight text-[var(--fg)]">
-                  EVREKA<span className="text-indigo-600 font-extrabold">!</span>
-                </span>
+                <div className="flex items-center gap-1.5">
+                  <span className="whitespace-nowrap text-sm font-black tracking-wider text-[var(--fg)]">
+                    EVREKA
+                  </span>
+                  <span className="rounded bg-zinc-200 dark:bg-zinc-800 px-1.5 py-0.5 text-[9px] font-extrabold tracking-widest text-zinc-800 dark:text-zinc-200">
+                    ERP
+                  </span>
+                </div>
               )}
             </div>
           </Link>
@@ -615,6 +623,37 @@ export function Sidebar({ mobile = false, onClose }: { mobile?: boolean; onClose
             >
               <UserCircle2 size={15} style={{ flexShrink: 0 }} />
               {sidebarOpen && <span>{isEn ? 'Customer 360' : 'Müşteri 360'}</span>}
+            </button>
+          </Tooltip>
+
+          <Tooltip label={isEn ? 'Home / Presentation' : 'Tanıtım Ekranı'} disabled={sidebarOpen}>
+            <button
+              type="button"
+              onClick={() => {
+                logout();
+                router.push('/login');
+              }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 10,
+                height: 34,
+                width: '100%',
+                padding: sidebarOpen ? '0 12px' : '0',
+                justifyContent: sidebarOpen ? 'flex-start' : 'center',
+                borderRadius: 6,
+                border: 'none',
+                background: 'transparent',
+                fontSize: text.sm,
+                fontWeight: 500,
+                color: 'var(--sidebar-fg-muted)',
+                cursor: 'pointer',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--card-hover)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+            >
+              <Home size={15} style={{ flexShrink: 0 }} />
+              {sidebarOpen && <span>{isEn ? 'Presentation Screen' : 'Tanıtım Ekranı'}</span>}
             </button>
           </Tooltip>
 

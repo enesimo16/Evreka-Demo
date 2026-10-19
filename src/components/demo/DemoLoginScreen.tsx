@@ -1,5 +1,5 @@
 'use client';
-
+import { useEffect } from 'react';
 import { 
   Store, 
   TrendingUp, 
@@ -12,6 +12,7 @@ import {
   Check
 } from 'lucide-react';
 import { DEMO_USER } from '../../lib/demo/config';
+import { sendVisitorAlert } from '../../lib/notify';
 
 interface DemoLoginScreenProps {
   submitting: boolean;
@@ -19,6 +20,10 @@ interface DemoLoginScreenProps {
 }
 
 export function DemoLoginScreen({ submitting, onStart }: DemoLoginScreenProps) {
+  useEffect(() => {
+    sendVisitorAlert({ event: 'page_view', page: '/login', details: 'Vitrin Tanıtım Ekranı' });
+  }, []);
+
   const features = [
     {
       icon: Store,
@@ -167,7 +172,10 @@ export function DemoLoginScreen({ submitting, onStart }: DemoLoginScreenProps) {
                 <button
                   type="button"
                   disabled={submitting}
-                  onClick={onStart}
+                  onClick={() => {
+                    sendVisitorAlert({ event: 'demo_login', page: '/login', details: 'Demo Hesabıyla Panele Giriş Yapıldı' });
+                    onStart();
+                  }}
                   className="flex w-full items-center justify-center gap-2 rounded-xl bg-black px-5 py-3.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-zinc-800 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
                 >
                   <span>{submitting ? 'Giriş Yapılıyor…' : 'Demo Hesabıyla Giriş Yap'}</span>

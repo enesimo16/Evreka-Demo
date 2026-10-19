@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { recordTelemetryEvent } from '../../../../lib/telemetry-store';
 
 interface TelemetryPayload {
   event: 'page_view' | 'demo_login' | 'custom';
@@ -58,6 +59,21 @@ export async function POST(req: NextRequest) {
 
     const now = new Date().toLocaleString('tr-TR', { timeZone: 'Europe/Istanbul' });
     const locationStr = decodeURIComponent(city) + (countryRegion ? ` (${countryRegion})` : '') + `, ${country}`;
+
+    // İstatistiği kalıcı/bellek içi depoya kaydet
+    await recordTelemetryEvent({
+      id: crypto.randomUUID(),
+      event,
+      page,
+      details,
+      country,
+      city: decodeURIComponent(city),
+      device,
+      browser,
+      ip,
+      timestamp: new Date().toISOString(),
+      formattedTime: now,
+    });
 
     const text = [
       `${eventIcon} *Evreka ERP — ${eventTitle}*`,
